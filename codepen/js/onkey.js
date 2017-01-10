@@ -1,4 +1,6 @@
 window.onload=function(){
+    var inputText = document.getElementById('chatinput');
+    var outputText = "";
 
 	function doStuff(data) {
 	    //Data is usable here
@@ -12,10 +14,12 @@ window.onload=function(){
 		}
 
 		console.log(dictionary);
-
-
-
-	}
+ 		
+ 		inputText.onkeyup = function(){
+	    	outputText = outputText.concat(dictionary[inputText.value[inputText.value.length-1]]); 
+	    	document.getElementById('printchatbox').innerHTML = outputText;
+		}
+	} 
 
 	function parseData(url, callBack) {
 	    Papa.parse(url, {
@@ -27,6 +31,9 @@ window.onload=function(){
 	        }
 	    });
 	}
+
+
+
 
 	parseData("../data/coding1.csv", doStuff);
 }
