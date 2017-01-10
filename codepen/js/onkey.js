@@ -1,5 +1,5 @@
 window.onload=function(){
-    var inputText = document.getElementById('chatinput');
+    var inputText = document.getElementById('decodedinput');
     var outputText = "";
 
 	function doStuff(data) {
@@ -17,7 +17,7 @@ window.onload=function(){
  		
  		inputText.onkeyup = function(){
 	    	outputText = outputText.concat(dictionary[inputText.value[inputText.value.length-1]]); 
-	    	document.getElementById('printchatbox').innerHTML = outputText;
+	    	document.getElementById('encodedoutput').innerHTML = outputText;
 		}
 	} 
 
