@@ -38,39 +38,58 @@ window.onload=function(){
 			   		outputText = outputText.concat(mapped);
 			    }
 			    if (invalidChars== true){
-			    	$("#warning").html("You've entered an invalid character. Try again!").fadeIn(300).delay(1000).fadeOut(400);
+			    	$("#warning").html("You've entered an invalid character. Try again, using letters and numbers.").fadeIn(300).delay(1000).fadeOut(400);
 			    	$("#output").text("");
 
 			    }
 			    else{ 
-			    	$("#output").text(outputText);
+
+					$(function(){
+					    $("#input").typed({
+					        strings: [outputText],
+					        typeSpeed: 30
+					    });
+					});			    
+			    	//$("#input").val(outputText).effect("highlight", {color: 'lightyellow'}, 500);
+			    	//$("#output").text(outputText).fadeIn(300);
 			    }
 			});  // end encode function
 
-		//start decode function
+		//start decode function 
 		$("#decodeBtn").click(function(){
 		    inputText = $.trim($("#input").val());
-
-			if(inputText != "" ) {
-			  var regx = /^[\w\-\s]+$/;
-			  if (!regx.test(inputText)) { 
-			    $("#warning").html("You've entered an invalid character. Try again!").fadeIn(300).delay(1000).fadeOut(400);
-			    $("#output").text("");
-			  }
-			  else{
-				  
-			  	console.log(inputText);
+ 			 	console.log(inputText);
 			  	var outputText = "";
+			  	var invalidChars = false;
 
 			  	// lookup and map each char of input string
 			  	for (var i = 0, len = inputText.length; i < len; i++) {
 			    	orig = map_to_orig[inputText[i]];
+			    	if (orig == null){
+    					invalidChars=true;
+    					break;
+					}
 			   		outputText = outputText.concat(orig);
 			    }
-			    $("#output").text(outputText);
+			    if (invalidChars== true){
+			    	$("#warning").html("You've entered an invalid character. Try again, using letters and numbers.").fadeIn(300).delay(1000).fadeOut(400);
+			    	$("#output").text("");
+
 			    }
-			}
-		}); // end decode function
+			    else{  
+
+					$(function(){
+					    $("#input").typed({
+					        strings: [outputText],
+					        typeSpeed: 30
+					    });
+					});			    	
+
+			    	//$("#input").val(outputText).effect("highlight", {color: 'lightyellow'}, 500);
+			    	//$("#output").text(outputText).fadeIn(300);
+			    }
+			});  // end decode function
+
 
 	}
 

@@ -4,44 +4,74 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
     <!-- Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 
+
     <script src="js/barbie-encrypt-decrypt.js"></script>  
     <!--<script src="js/barbie-decrypt.js"></script>-->
     <script type="text/javascript" src="js/papaparse.js"></script>
-  
+    <script type="text/javascript" src="js/typed.js"></script>
+     
 
   </head>
 
 <style>
+  @import 'https://fonts.googleapis.com/css?family=Roboto+Mono:100';
+/*  html,
+  body {
+    font-family: 'Roboto Mono', monospace;
+    background: #212121;
+    height: 100%;  
+    font-weight: 100;
+    font-size: 28px;
+    color: #fafafa;
+  }*/
+  #warning { background: rgba(255,255,0,0.3)} /* Green background with 30% opacity */
+  #input {font-family: Courier, monospace;}
 
 /**  .inputbox {width:300px;}
   #submitBtn {margin:20px;}**/
 
 </style>
 
-<body>
-  <div class="form-group inputbox">
-    <label for="input">Enter your secret message:</label> 
-    <input type="text" class="form-control" id="input">
-    <div id="encodeBtn" class="btn btn-primary btn-med center-block">Encode!</div>
-    
-    <div id="decodeBtn" class="btn btn-primary btn-med center-block">Decode!</div>
-   
-    <div>Output: <span id="output"></span></div>
-    <div id="warning"></div>
-  </div>   
+<body> 
 
 
+    <div class="form-group inputbox center-block">
+      <label for="input">Enter your secret message:</label> 
+      <input type="text" class="form-control center-block" id="input">
 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-      <!-- Include all compiled plugins (below), or include individual files as needed -->
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-      <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-      <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<!-- 
+      <div class="btn-toolbar">
+          <div id="encodeBtn" class="btn btn-primary btn-med center-block">Encode!</div>
+          <div id="decodeBtn" class="btn btn-primary btn-med center-block">Decode!</div>
+      </div>
+ -->
+ 
+
+      <div class="row">
+        <div class="col-xs-6 col-md-6">
+          <div id="encodeBtn" class="btn btn-primary btn-med center-block">Encode!</div>
+        </div>
+        <div class="col-xs-6 col-md-6">
+          <div id="decodeBtn" class="btn btn-primary btn-med center-block">Decode!</div>
+        </div>
+      </div>
+
+      <!--<div>Output: <span id="output"></span></div>-->
+      <div id="warning"></div>
+    </div>    
+
+
+ 
 
 </body>
