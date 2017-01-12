@@ -5,17 +5,24 @@ window.onload=function(){
 
 		// Parse and clean data
 	    console.log(data); 
-	    var dictionary = {};
+	    var orig_to_map = {};
+	    var map_to_orig = {};
 
 		for (var i = 0, emp; i < data.length; i++) {
 		   d = data[i];
-		   dictionary[d.original] = d.mapped;
+		   orig_to_map[d.original] = d.mapped;
 		}
-		console.log(dictionary);
+		console.log(orig_to_map);
+
+		for (var i = 0, emp; i < data.length; i++) {
+		   d = data[i];
+		   map_to_orig[d.mapped] = d.original;
+		}
+		console.log(map_to_orig);
 		// now you have encoding dictionary
 
 
-		//capture input and show it as output
+		//start encode function
 		$("#encodeBtn").click(function(){
 		  inputText = $("#input").val();
 		  console.log(inputText);
@@ -24,20 +31,25 @@ window.onload=function(){
 
 		  // lookup and map each char of input string
 		  for (var i = 0, len = inputText.length; i < len; i++) {
-		    mapped = dictionary[inputText[i]];
+		    mapped = orig_to_map[inputText[i]];
 		    outputText = outputText.concat(mapped);
 		  }
- 
-
-// 		  outputText = inputText
-
-
-// outputText = outputText.concat(dictionary[inputText.value[inputText.value.length-1]]); 
-// 	    	document.getElementById('encodedoutput').innerHTML = outputText;
-
-
 		  $("#output").text(outputText);
-		});
+		}); // end encode function
+
+		//start encode function
+		$("#decodeBtn").click(function(){
+		  inputText = $("#input").val();
+		  console.log(inputText);
+		  var outputText = "";
+
+		  // lookup and map each char of input string
+		  for (var i = 0, len = inputText.length; i < len; i++) {
+		    orig = map_to_orig[inputText[i]];
+		    outputText = outputText.concat(orig);
+		  }
+		  $("#output").text(outputText);
+		}); // end encode function
 	}
 
 
