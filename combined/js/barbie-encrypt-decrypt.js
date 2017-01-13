@@ -1,7 +1,8 @@
 window.onload=function(){
 	var inputText = 0;
 
-	function doStuff(data) {    
+	function doStuff(data) {   
+	 
 
 		// Parse and clean data
 	    console.log(data); 
