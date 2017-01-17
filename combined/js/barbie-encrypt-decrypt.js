@@ -108,6 +108,6 @@ window.onload=function(){
 
 
 
-
-	parseData("/combined/data/coding1.csv", doStuff);
+	parseData("https://cdn2.pri.org/embeds/2017-01/barbie-encoder/data/coding1.csv", doStuff)
+	//parseData("../../data/coding1.csv", doStuff);
 }
